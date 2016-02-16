@@ -1,0 +1,68 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myJugadorLabel">Create or edit a Jugador</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="jugador.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="jugador.nombre"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fecha_nacimiento">Fecha_nacimiento</label>
+            <input type="date" class="form-control" name="fecha_nacimiento" id="field_fecha_nacimiento"
+                    ng-model="jugador.fecha_nacimiento"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_canastas_totales">Canastas_totales</label>
+            <input type="number" class="form-control" name="canastas_totales" id="field_canastas_totales"
+                    ng-model="jugador.canastas_totales"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_rebotes_totales">Rebotes_totales</label>
+            <input type="number" class="form-control" name="rebotes_totales" id="field_rebotes_totales"
+                    ng-model="jugador.rebotes_totales"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_asistencias_totales">Asistencias_totales</label>
+            <input type="number" class="form-control" name="asistencias_totales" id="field_asistencias_totales"
+                    ng-model="jugador.asistencias_totales"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_posicion">Posicion</label>
+            <input type="text" class="form-control" name="posicion" id="field_posicion"
+                    ng-model="jugador.posicion"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_equipo">equipo</label>
+            <select class="form-control" id="field_equipo" name="equipo" ng-model="jugador.equipo" ng-options="equipo as equipo.nombre for equipo in equipos track by equipo.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

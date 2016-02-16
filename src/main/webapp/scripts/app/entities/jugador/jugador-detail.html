@@ -1,0 +1,78 @@
+
+<div>
+    <h2><span>Jugador</span> {{jugador.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Nombre</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{jugador.nombre}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Fecha_nacimiento</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{jugador.fecha_nacimiento | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Canastas_totales</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{jugador.canastas_totales}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Rebotes_totales</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{jugador.rebotes_totales}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Asistencias_totales</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{jugador.asistencias_totales}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Posicion</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{jugador.posicion}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>equipo</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="equipo.detail({id:jugador.equipo.id})">{{jugador.equipo.nombre}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

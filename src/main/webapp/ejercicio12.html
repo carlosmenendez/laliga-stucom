@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ejercicio12</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+</head>
+
+<style>
+    table, td  {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+</style>
+
+<body>
+
+<div ng-app="myApp" ng-controller="jugadoresCtrl">
+
+    <table>
+        <tr ng-repeat="x in jugadores" ng-show="x.canastas_totales >= 50">
+            <td ng-if="$odd" style="background-color:#f1f1f1">
+                {{ x.nombre }}</td>
+            <td ng-if="$even">
+                {{ x.nombre }}</td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">
+                {{ x.fecha_nacimiento }}</td>
+            <td ng-if="$even">
+                {{ x.fecha_nacimiento }}</td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">
+                {{ x.canastas_totales }}</td>
+            <td ng-if="$even">
+                {{ x.canastas_totales }}</td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">
+                {{ x.asistencias_totales }}</td>
+            <td ng-if="$even">
+                {{ x.asistencias_totales }}</td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">
+                {{ x.rebotes_totales }}</td>
+            <td ng-if="$even">
+                {{ x.rebotes_totales }}</td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">
+                {{ x.posicion }}</td>
+            <td ng-if="$even">
+                {{ x.posicion }}</td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('jugadoresCtrl', function($scope, $http) {
+        $http.get("/api/jugadors").then(function (response) {
+            $scope.jugadores = response.data;
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ejercicio9</title>
+</head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+
+<div ng-app="myApp" ng-controller="jugadoresCtrl">
+
+    <table>
+        <tr ng-repeat="x in jugadores">
+            <td>{{ x.nombre }}</td>
+            <td>{{ x.fecha_nacimiento }}</td>
+            <td>{{ x.canastas_totales }}</td>
+            <td>{{ x.rebotes_totales }}</td>
+            <td>{{ x.asistencias_totales }}</td>
+            <td>{{ x.posicion }}</td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('jugadoresCtrl', function($scope, $http) {
+        $http.get("/api/jugadors").then(function (response) {
+            $scope.jugadores = response.data;
+        });
+    });
+</script>
+
+</body>
+</html>
